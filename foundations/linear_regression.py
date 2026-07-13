@@ -1,5 +1,4 @@
 import numpy as np
-import torch
 from numpy.typing import NDArray
 
 class Solution:
@@ -7,7 +6,7 @@ class Solution:
     def get_model_prediction(self, X: NDArray[np.float64], weights: NDArray[np.float64]) -> NDArray[np.float64]:
         # X is (n, m), weights is (m,) -> return (n,) predictions
         # Round to 5 decimal places
-        pred = X @ weights
+        pred = np.dot(X,weights)
         return np.round(pred, 5) 
 
     def get_error(self, model_prediction: NDArray[np.float64], ground_truth: NDArray[np.float64]) -> float:
